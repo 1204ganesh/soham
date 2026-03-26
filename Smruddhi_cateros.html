@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>समृद्धी केटरर्स - ऑर्डर फॉर्म</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&family=Noto+Sans+Devanagari:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #c0392b;
+    --dark-red: #922b21;
+    --light-red: #f5b7b1;
+    --pale: #fdf5f5;
+    --white: #ffffff;
+    --border: #c0392b;
+    --text: #2c1810;
+    --gold: #d4a017;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    background: #f0e8e8;
+    color: var(--text);
+    font-size: 14px;
+  }
+
+  /* ===== TOP NAV BAR ===== */
+  .top-bar {
+    background: var(--red);
+    color: white;
+    text-align: center;
+    padding: 6px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== MAIN WRAPPER ===== */
+  .page-wrapper {
+    max-width: 960px;
+    margin: 16px auto;
+    background: white;
+    border: 3px double var(--red);
+    box-shadow: 0 4px 24px rgba(192,57,43,0.15);
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: white;
+    border-bottom: 3px double var(--red);
+    padding: 14px 20px 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header-logo {
+    width: 64px;
+    height: 64px;
+    background: var(--red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    flex-shrink: 0;
+    border: 3px solid var(--dark-red);
+  }
+  .header-center { flex: 1; text-align: center; }
+  .header-title {
+    font-family: 'Tiro Devanagari Marathi', serif;
+    font-size: 32px;
+    color: var(--red);
+    line-height: 1.1;
+    font-weight: 700;
+  }
+  .header-sub {
+    font-size: 12px;
+    color: var(--dark-red);
+    margin-top: 2px;
+  }
+  .header-contact {
+    text-align: right;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .header-contact strong { color: var(--red); }
+
+  /* ===== TAGLINE BAND ===== */
+  .tagline-band {
+    background: var(--red);
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ===== FORM BODY ===== */
+  .form-body { padding: 16px 20px; }
+
+  /* ===== SECTION TITLES ===== */
+  .section-title {
+    background: var(--red);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 5px 12px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title .icon { font-size: 16px; }
+
+  .section-block {
+    border: 1.5px solid var(--border);
+    margin-bottom: 18px;
+  }
+
+  /* ===== CUSTOMER INFO GRID ===== */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .info-field {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--light-red);
+    border-right: 1px solid var(--light-red);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .info-field:nth-child(even) { border-right: none; }
+  .info-label {
+    font-weight: 600;
+    color: var(--red);
+    font-size: 12px;
+    white-space: nowrap;
+    min-width: 110px;
+  }
+  .info-field input {
+    flex: 1;
+    border: none;
+    border-bottom: 1.5px solid var(--red);
+    outline: none;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--text);
+    background: transparent;
+    padding: 2px 4px;
+  }
+  .info-field input:focus { border-bottom-color: var(--dark-red); background: #fff8f8; }
+
+  /* ===== ITEMS TABLE ===== */
+  .items-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .items-table th {
+    background: var(--red);
+    color: white;
+    padding: 6px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .items-table td {
+    border: 1px solid var(--light-red);
+    padding: 4px 6px;
+    vertical-align: middle;
+  }
+  .items-table tr:nth-child(even) td { background: #fff5f5; }
+  .items-table tr:hover td { background: #ffe8e8; }
+  .item-name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .items-table input[type="number"],
+  .items-table input[type="text"] {
+    width: 100%;
+    border: 1px solid var(--light-red);
+    border-radius: 2px;
+    padding: 3px 5px;
+    font-family: inherit;
+    font-size: 12px;
+    text-align: center;
+    outline: none;
+    background: white;
+  }
+  .items-table input:focus { border-color: var(--red); background: #fff8f8; }
+  .unit-badge {
+    display: inline-block;
+    background: var(--light-red);
+    color: var(--dark-red);
+    font-size: 10px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  .col-no { width: 36px; text-align: center; color: #999; font-size: 11px; }
+  .col-name { min-width: 140px; }
+  .col-unit { width: 60px; text-align: center; }
+  .col-qty { width: 80px; }
+  .col-price { width: 80px; }
+  .col-total { width: 80px; text-align: right; font-weight: 600; color: var(--red); }
+  .col-del { width: 36px; text-align: center; }
+
+  /* ===== REMOVE BUTTON ===== */
+  .btn-remove {
+    background: none;
+    border: 1px solid var(--red);
+    color: var(--red);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    transition: all 0.2s;
+  }
+  .btn-remove:hover { background: var(--red); color: white; }
+
+  /* ===== ADD ITEM ROW ===== */
+  .add-item-row {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    background: #fff8f8;
+    border-top: 1px dashed var(--red);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .add-item-row input {
+    border: 1px solid var(--red);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+  }
+  .add-item-row input:focus { border-color: var(--dark-red); }
+  .add-item-row input.inp-name { flex: 1; min-width: 120px; }
+  .add-item-row input.inp-unit { width: 70px; }
+  .btn-add {
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 6px 14px;
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn-add:hover { background: var(--dark-red); }
+
+  /* ===== TWO-COLUMN ITEM SECTIONS ===== */
+  .two-col-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .two-col-items .items-table { border-right: 1px solid var(--light-red); }
+  .two-col-items .items-table:last-child { border-right: none; }
+
+  /* ===== SUMMARY / TOTAL ===== */
+  .summary-section {
+    background: var(--pale);
+    border: 2px solid var(--red);
+    padding: 14px 20px;
+    margin-bottom: 18px;
+  }
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--light-red);
+    font-size: 13px;
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .summary-row.total {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--red);
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 2px solid var(--red);
+    border-bottom: none;
+  }
+  .summary-label { color: var(--text); font-weight: 600; }
+  .summary-value { font-weight: 700; color: var(--red); }
+
+  /* ===== NOTE AREA ===== */
+  .note-area {
+    padding: 10px;
+  }
+  .note-area textarea {
+    width: 100%;
+    border: 1px solid var(--light-red);
+    border-radius: 3px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+    resize: vertical;
+    min-height: 60px;
+    color: var(--text);
+  }
+  .note-area textarea:focus { border-color: var(--red); }
+
+  /* ===== ACTION BUTTONS ===== */
+  .action-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 16px 20px;
+    background: var(--pale);
+    border-top: 2px solid var(--red);
+  }
+  .action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn-print { background: var(--red); color: white; }
+  .btn-print:hover { background: var(--dark-red); }
+  .btn-whatsapp { background: #25d366; color: white; }
+  .btn-whatsapp:hover { background: #1da851; }
+  .btn-save { background: #2980b9; color: white; }
+  .btn-save:hover { background: #2471a3; }
+  .btn-clear { background: #7f8c8d; color: white; }
+  .btn-clear:hover { background: #636e72; }
+
+  /* ===== FOOTER ===== */
+  .page-footer {
+    border-top: 2px solid var(--red);
+    padding: 8px 20px;
+    font-size: 11px;
+    color: var(--red);
+    text-align: center;
+    background: var(--pale);
+  }
+
+  /* ===== PRINT STYLES ===== */
+  @media print {
+    body { background: white; font-size: 12px; }
+    .page-wrapper { max-width: 100%; margin: 0; border: 2px double var(--red); box-shadow: none; }
+    .action-bar, .add-item-row, .btn-remove, .col-del, .top-bar { display: none !important; }
+    .items-table input, .info-field input, .note-area textarea {
+      border: none;
+      border-bottom: 1px solid #ccc;
+      background: transparent;
+    }
+    .form-body { padding: 8px 12px; }
+    @page { size: A4; margin: 10mm; }
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 600px) {
+    .header { flex-direction: column; text-align: center; gap: 8px; }
+    .header-contact { text-align: center; }
+    .info-grid { grid-template-columns: 1fr; }
+    .info-field { border-right: none; }
+    .info-field:nth-child(even) { border-right: none; }
+    .two-col-items { grid-template-columns: 1fr; }
+    .header-title { font-size: 24px; }
+    .action-btn { padding: 8px 14px; font-size: 12px; }
+    .form-body { padding: 10px 10px; }
+  }
+
+  /* ===== DECORATIVE ===== */
+  .divider-om {
+    text-align: center;
+    color: var(--red);
+    font-size: 18px;
+    padding: 4px 0;
+    letter-spacing: 12px;
+    opacity: 0.4;
+  }
+  .row-num { color: #bbb; font-size: 11px; text-align: center; }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--dark-red);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 999;
+    transition: transform 0.3s;
+    pointer-events: none;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="top-bar">🙏 आमच्याकडे लग्न, वाढदिवस व सर्व शुभ कार्यांसाठी भोजनाच्या ऑर्डर स्वीकारण्यात येतील 🙏</div>
+
+<div class="page-wrapper" id="printArea">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-logo">🪔</div>
+    <div class="header-center">
+      <div class="header-title">समृद्धी केटरर्स (आचारी)</div>
+      <div class="header-sub">कृष्णापूरवाडी, ता.धनसावंगी, जि.जालना</div>
+      <div class="divider-om">॰ ॰ ॰ ॰ ॰</div>
+    </div>
+    <div class="header-contact">
+      <strong>☎ 9834605581</strong><br>
+      <strong>☎ 8766438419</strong><br>
+      <small>शेषनारायण उत्तमराव तांबेकर</small>
+    </div>
+  </div>
+
+  <!-- TAGLINE -->
+  <div class="tagline-band">
+    ✦ पूजेचे साहित्य : नारळ, सांब्या, सुपारी, खारीक, वाटी, मांगिणीचे पान, अगरबत्ती, गुलाल, हळदी-कुंकू ✦
+  </div>
+
+  <div class="form-body">
+
+    <!-- SECTION 1: CUSTOMER INFO -->
+    <div class="section-block">
+      <div class="section-title"><span class="icon">👤</span> ग्राहक माहिती</div>
+      <div class="info-grid">
+        <div class="info-field">
+          <span class="info-label">लग्नमालकाचे नाव :</span>
+          <input type="text" id="customerName" placeholder="नाव लिहा...">
+        </div>
+        <div class="info-field">
+          <span class="info-label">मोबाईल नं. :</span>
+          <input type="tel" id="mobile" placeholder="मोबाईल नंबर">
+        </div>
+        <div class="info-field">
+          <span class="info-label">स्वयंपाकाची दि. :</span>
+          <input type="date" id="eventDate">
+        </div>
+        <div class="info-field">
+          <span class="info-label">किती लोकांचा स्वयंपाक :</span>
+          <input type="number" id="guestCount" placeholder="उदा. 200">
+        </div>
+        <div class="info-field">
+          <span class="info-label">पत्ता :</span>
+          <input type="text" id="address" placeholder="घर पत्ता / गाव">
+        </div>
+        <div class="info-field">
+          <span class="info-label">कार्यक्रम :</span>
+          <input type="text" id="eventType" placeholder="लग्न / वाढदिवस / साखरपुडा...">
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: FOOD ITEMS -->
+    <div class="section-block">
+      <div class="section-title"><span class="icon">🌾</span> खाद्यपदार्थ यादी</div>
+      <table class="items-table" id="foodTable">
+        <thead>
+          <tr>
+            <th class="col-no">क्र.</th>
+            <th class="col-name">पदार्थाचे नाव</th>
+            <th class="col-unit">एकक</th>
+            <th class="col-qty">प्रमाण</th>
+            <th class="col-price">दर (₹)</th>
+            <th class="col-total">एकूण (₹)</th>
+            <th class="col-del no-print">हटवा</th>
+          </tr>
+        </thead>
+        <tbody id="foodBody"></tbody>
+      </table>
+      <div class="add-item-row no-print">
+        <input class="inp-name" type="text" id="newFoodName" placeholder="नवीन पदार्थाचे नाव...">
+        <input class="inp-unit" type="text" id="newFoodUnit" placeholder="एकक (किं./नग)">
+        <button class="btn-add" onclick="addFoodItem()">+ जोडा</button>
+      </div>
+    </div>
+
+    <!-- SECTION 3: MASALA & SPICES -->
+    <div class="section-block">
+      <div class="section-title"><span class="icon">🌶️</span> मसाले व किराणा</div>
+      <table class="items-table" id="masalaTable">
+        <thead>
+          <tr>
+            <th class="col-no">क्र.</th>
+            <th class="col-name">पदार्थाचे नाव</th>
+            <th class="col-unit">एकक</th>
+            <th class="col-qty">प्रमाण</th>
+            <th class="col-price">दर (₹)</th>
+            <th class="col-total">एकूण (₹)</th>
+            <th class="col-del no-print">हटवा</th>
+          </tr>
+        </thead>
+        <tbody id="masalaBody"></tbody>
+      </table>
+      <div class="add-item-row no-print">
+        <input class="inp-name" type="text" id="newMasalaName" placeholder="नवीन मसाल्याचे नाव...">
+        <input class="inp-unit" type="text" id="newMasalaUnit" placeholder="एकक">
+        <button class="btn-add" onclick="addMasalaItem()">+ जोडा</button>
+      </div>
+    </div>
+
+    <!-- SECTION 4: VASTU BHANDAR -->
+    <div class="section-block">
+      <div class="section-title"><span class="icon">🍳</span> वस्तू भांडार</div>
+      <table class="items-table" id="vastuTable">
+        <thead>
+          <tr>
+            <th class="col-no">क्र.</th>
+            <th class="col-name">वस्तूचे नाव</th>
+            <th class="col-unit">एकक</th>
+            <th class="col-qty">प्रमाण</th>
+            <th class="col-price">दर (₹)</th>
+            <th class="col-total">एकूण (₹)</th>
+            <th class="col-del no-print">हटवा</th>
+          </tr>
+        </thead>
+        <tbody id="vastuBody"></tbody>
+      </table>
+      <div class="add-item-row no-print">
+        <input class="inp-name" type="text" id="newVastuName" placeholder="नवीन वस्तूचे नाव...">
+        <input class="inp-unit" type="text" id="newVastuUnit" placeholder="एकक">
+        <button class="btn-add" onclick="addVastuItem()">+ जोडा</button>
+      </div>
+    </div>
+
+    <!-- SECTION 5: MANDAI (VEGETABLES) -->
+    <div class="section-block">
+      <div class="section-title"><span class="icon">🥦</span> मंडई (भाजीपाला)</div>
+      <table class="items-table" id="mandaiTable">
+        <thead>
+          <tr>
+            <th class="col-no">क्र.</th>
+            <th class="col-name">भाजीचे नाव</th>
+            <th class="col-unit">एकक</th>
+            <th class="col-qty">प्रमाण</th>
+            <th class="col-price">दर (₹)</th>
+            <th class="col-total">एकूण (₹)</th>
+            <th class="col-del no-print">हटवा</th>
+          </tr>
+        </thead>
+        <tbody id="mandaiBody"></tbody>
+      </table>
+      <div class="add-item-row no-print">
+        <input class="inp-name" type="text" id="newMandaiName" placeholder="नवीन भाजीचे नाव...">
+        <input class="inp-unit" type="text" id="newMandaiUnit" placeholder="एकक">
+        <button class="btn-add" onclick="addMandaiItem()">+ जोडा</button>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary-section">
+      <div class="section-title" style="margin-bottom:12px;"><span class="icon">💰</span> बिल सारांश</div>
+      <div class="summary-row">
+        <span class="summary-label">खाद्यपदार्थ उपएकूण :</span>
+        <span class="summary-value" id="subtotal1">₹ 0.00</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">मसाले उपएकूण :</span>
+        <span class="summary-value" id="subtotal2">₹ 0.00</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">वस्तू भांडार उपएकूण :</span>
+        <span class="summary-value" id="subtotal3">₹ 0.00</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">मंडई उपएकूण :</span>
+        <span class="summary-value" id="subtotal4">₹ 0.00</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">आचारी मजुरी :</span>
+        <span class="summary-value">
+          <input type="number" id="labourCharge" placeholder="0" style="width:90px;border:1px solid var(--red);border-radius:3px;padding:3px 6px;font-family:inherit;font-size:13px;text-align:right;outline:none;" oninput="updateTotals()"> ₹
+        </span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">अॅडव्हान्स :</span>
+        <span class="summary-value">
+          <input type="number" id="advance" placeholder="0" style="width:90px;border:1px solid var(--red);border-radius:3px;padding:3px 6px;font-family:inherit;font-size:13px;text-align:right;outline:none;" oninput="updateTotals()"> ₹
+        </span>
+      </div>
+      <div class="summary-row total">
+        <span class="summary-label">🏷️ एकूण रक्कम :</span>
+        <span class="summary-value" id="grandTotal">₹ 0.00</span>
+      </div>
+      <div class="summary-row" style="color:#c0392b;font-size:12px;padding-top:6px;">
+        <span>बाकी रक्कम :</span>
+        <span id="balanceAmt" style="font-weight:700;">₹ 0.00</span>
+      </div>
+    </div>
+
+    <!-- NOTES -->
+    <div class="section-block">
+      <div class="section-title"><span class="icon">📝</span> विशेष टीप</div>
+      <div class="note-area">
+        <textarea id="notes" placeholder="कोणतेही विशेष निर्देश येथे लिहा..."></textarea>
+      </div>
+    </div>
+
+    <!-- FOOTER NOTE -->
+    <div style="font-size:11px;color:var(--red);text-align:center;padding:6px 0;border-top:1px dashed var(--red);">
+      टीप – वरी दिल्याप्रमाणे मालकाने माल पूर्ण न दिल्यास आचारी जबाबदार राहणार नाही.
+    </div>
+
+  </div><!-- end form-body -->
+
+  <!-- ACTION BAR -->
+  <div class="action-bar no-print">
+    <button class="action-btn btn-print" onclick="window.print()">🖨️ प्रिंट करा</button>
+    <button class="action-btn btn-whatsapp" onclick="shareWhatsApp()">📱 WhatsApp वर शेअर</button>
+    <button class="action-btn btn-save" onclick="saveData()">💾 जतन करा</button>
+    <button class="action-btn btn-clear" onclick="clearAll()">🗑️ साफ करा</button>
+  </div>
+
+  <div class="page-footer">
+    &copy; समृद्धी केटरर्स (आचारी) | कृष्णापूरवाडी, ता.धनसावंगी, जि.जालना | 📞 9834605581 / 8766438419
+  </div>
+
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+// DATA DEFINITIONS
+// ============================================================
+const defaultFoodItems = [
+  { name: 'साखर', unit: 'किं.' },
+  { name: 'तांदूळ', unit: 'किं.' },
+  { name: 'तेल', unit: 'डबे' },
+  { name: 'दाळडा', unit: 'डबे' },
+  { name: 'मैदा', unit: 'किं.' },
+  { name: 'रवा जाड', unit: 'किं.' },
+  { name: 'रवा बारीक', unit: 'किं.' },
+  { name: 'चना दाळ', unit: 'किं.' },
+  { name: 'बुंदी बेसन', unit: 'किं.' },
+  { name: 'पिवळा कलर', unit: 'किं.' },
+  { name: 'केसरी कलर', unit: 'ग्रॅम' },
+  { name: 'खोबरे खिस', unit: 'किं.' },
+  { name: 'तूर दाळ', unit: 'किं.' },
+  { name: 'मूग दाळ', unit: 'किं.' },
+  { name: 'हिरा बेसन', unit: 'ग्रॅम' },
+  { name: 'मटकी', unit: 'ग्रॅम' },
+  { name: 'चना', unit: 'ग्रॅम' },
+  { name: 'जिरे', unit: 'ग्रॅम' },
+  { name: 'मोहरी', unit: 'ग्रॅम' },
+  { name: 'दगडी पोहे', unit: 'किं.' },
+  { name: 'मका पोहे', unit: 'किं.' },
+  { name: 'भाजके पोहे', unit: 'किं.' },
+  { name: 'दाळण', unit: 'किं.' },
+  { name: 'लिंबू सत्व', unit: 'ग्रॅम' },
+  { name: 'राजवडी दाळ', unit: 'किं.' },
+  { name: 'मसुरी दाळ', unit: 'किं.' },
+  { name: 'भाजकी दाळ', unit: 'किं.' },
+  { name: 'दही', unit: 'लीटर' },
+  { name: 'दूध', unit: 'लीटर' },
+  { name: 'पनीर', unit: 'किं.' },
+  { name: 'हिरवी मिरची', unit: 'किं.' },
+  { name: 'ग्रीन पिस वाटाणा', unit: 'किं.' },
+];
+
+const defaultMasalaItems = [
+  { name: 'चाट मसाला', unit: 'किं.' },
+  { name: 'छोले मसाला', unit: 'किं.' },
+  { name: 'जिलेबी खबीर', unit: 'किं.' },
+  { name: 'अरका मखूर', unit: 'किं.' },
+  { name: 'गावरान तूप', unit: 'किं.' },
+  { name: 'हिंग', unit: 'किं.' },
+  { name: 'चहा पावडर', unit: 'ग्रॅम' },
+  { name: 'माचीस', unit: 'नग' },
+  { name: 'शेंगदाणे', unit: 'किं.' },
+  { name: 'चिनी सॉस', unit: 'किं.' },
+  { name: 'टोमॅटो सॉस', unit: 'किं.' },
+  { name: 'खवा', unit: 'किं.' },
+  { name: 'गुळ', unit: 'किं.' },
+  { name: 'पिस्ता कटरण', unit: 'ग्रॅम' },
+  { name: 'बादाम कटरण', unit: 'ग्रॅम' },
+  { name: 'चांदी वर्क पाकीट', unit: 'किं.' },
+  { name: 'टेस्टिंग पावडर', unit: 'ग्रॅम' },
+  { name: 'तेज पान', unit: 'किं.' },
+  { name: 'गहू पिठ', unit: 'किं.' },
+  { name: 'मिठ', unit: 'किं.' },
+  { name: 'काळ मिठ', unit: 'ग्रॅम' },
+  { name: 'जलजिरा पावडर', unit: 'ग्रॅम' },
+  { name: 'कस्तुरी मेथी', unit: 'ग्रॅम' },
+  { name: 'बडीशेप', unit: 'ग्रॅम' },
+  { name: 'हळदी पावडर', unit: 'ग्रॅम' },
+  { name: 'काजू तुकडा', unit: 'ग्रॅम' },
+  { name: 'काजू कनीर', unit: 'ग्रॅम' },
+  { name: 'गोटा ', unit: 'ग्रॅम' },
+  { name: 'चाट मसाला/खुला', unit: 'ग्रॅम' },
+  { name: 'महाराजा मसाला', unit: 'ग्रॅम' },
+  { name: 'कांदा लसुन मसाला', unit: 'ग्रॅम' },
+  { name: 'MD मसाला', unit: 'ग्रॅम' },
+  { name: 'गावरान तूप', unit: 'किं.' },
+  { name: 'अजवेन', unit: 'ग्रॅम' },
+  { name: 'शेव मसाला', unit: 'ग्रॅम' },
+  { name: 'प्रविण मसाला', unit: 'किं.' },
+  { name: 'चिकन मसाला', unit: 'किं.' },
+  { name: 'मटन मसाला', unit: 'नग' },
+  { name: 'किचन किंग मसाला', unit: 'किं.' },
+  { name: 'हळदी पावडर', unit: 'किं.' },
+  { name: 'धना पावडर', unit: 'किं.' },
+  { name: 'मिरची पावडर', unit: 'ग्रॅम' },
+  { name: 'खोबरे', unit: 'किं.' },
+  { name: 'नारळ', unit: 'किं.' },
+  { name: 'कळवंची', unit: 'किं.' },
+  { name: 'मनोखा', unit: 'किं.' },
+  { name: 'बदाम', unit: 'किं.' },
+  { name: 'जलजिरा पावडर', unit: 'ग्रॅम' },
+  { name: 'चिवडा मसाला', unit: 'ग्रॅम' },
+  { name: 'खायचा सोडा टाटा', unit: 'ग्रॅम' },
+  { name: 'बेकिंग पावडर', unit: 'ग्रॅम' },
+  { name: 'ॲल्युमिनियम पावडर', unit: 'ग्रॅम' },
+  { name: 'सांबर मसाला', unit: 'नग' },
+  { name: 'पत्रावळी', unit: 'नग' },
+  { name: 'पाणी ग्लास', unit: 'नग' },
+  { name: 'चहा ग्लास', unit: 'नग' },
+  { name: 'सुरुची पापड फल्ली', unit: 'नग' },
+  { name: 'तडका मिरची', unit: 'किं.' },
+  { name: 'लसुन', unit: 'किं.' },
+  { name: 'अंगूर', unit: 'किं.' },
+  { name: 'बिट', unit: 'किं.' },
+  { name: 'लाल मिरची', unit: 'किं.' },
+  { name: 'भेंडी', unit: 'किं.' },
+  { name: 'वाल शेंग', unit: 'किं.' },
+  { name: 'चवळी', unit: 'किं.' },
+  { name: 'शेवगा शेंग', unit: 'किं.' },
+  { name: 'सिमला मिरची', unit: 'किं.' },
+];
+
+const defaultVastuItems = [
+  { name: 'कढाई', unit: 'नग' },
+  { name: 'कोंचा', unit: 'नग' },
+  { name: 'प्लेन बफर (चपाती)', unit: 'नग' },
+  { name: 'भगोने जम्बो', unit: 'नग' },
+  { name: 'भगोने मेडीअम सार्इज', unit: 'नग' },
+  { name: 'टे', unit: 'नग' },
+  { name: 'पाट', unit: 'नग' },
+  { name: 'बेलने', unit: 'नग' },
+  { name: 'चाकू', unit: 'नग' },
+  { name: 'बकीट', unit: 'नग' },
+  { name: 'खलबत्ता', unit: 'नग' },
+  { name: 'रिक्शनी', unit: 'नग' },
+  { name: 'टोपले', unit: 'नग' },
+  { name: 'स्टील टप', unit: 'नग' },
+  { name: 'भात वाडी', unit: 'नग' },
+  { name: 'जग', unit: 'नग' },
+  { name: 'चमचा', unit: 'नग' },
+  { name: 'चगराळे', unit: 'नग' },
+  { name: 'दांडी भगोने', unit: 'नग' },
+  { name: 'पाणी खुम', unit: 'नग' },
+  { name: 'बिट', unit: 'नग' },
+  { name: 'जुने कापड', unit: 'नग' },
+  { name: 'मिक्सर', unit: 'नग' },
+  { name: 'गॅस टाकी', unit: 'नग' },
+  { name: 'सरपण', unit: 'खिव' },
+  { name: 'प्लेन बफर', unit: 'नग' },
+  { name: 'चपाती तवा', unit: 'नग' },
+  { name: 'प्लेन फरशी', unit: 'नग' },
+  { name: 'नवा फडा', unit: 'नग' },
+  { name: 'जिलेबी तवी', unit: 'नग' },
+];
+
+const defaultMandaiItems = [
+  { name: 'कैरी आंबा', unit: 'किं.' },
+  { name: 'कांदा', unit: 'किं.' },
+  { name: 'बटाटा मोठा', unit: 'किं.' },
+  { name: 'वांगे बारीक', unit: 'किं.' },
+  { name: 'फुल गोभी', unit: 'किं.' },
+  { name: 'पत्ता गोभी', unit: 'किं.' },
+  { name: 'दिलपसंद', unit: 'जुडी' },
+  { name: 'पालक', unit: 'किं.' },
+  { name: 'गाजर', unit: 'किं.' },
+  { name: 'काकडी', unit: 'जुडी' },
+  { name: 'कोथींबीर', unit: 'जुडी' },
+  { name: 'पुदीना', unit: 'किं.' },
+  { name: 'टोमॅटो', unit: 'किं.' },
+  { name: 'आद्रक', unit: 'किं.' },
+  { name: 'कांदा', unit: 'किं.' },
+  { name: 'लसूण', unit: 'किं.' },
+  { name: 'मेथी', unit: 'जुडी' },
+  { name: 'शेपू', unit: 'जुडी' },
+   { name: 'चुका', unit: 'जुडी' },
+
+];
+
+// ============================================================
+// STATE
+// ============================================================
+let tables = {
+  food:   { body: 'foodBody',   items: [] },
+  masala: { body: 'masalaBody', items: [] },
+  vastu:  { body: 'vastuBody',  items: [] },
+  mandai: { body: 'mandaiBody', items: [] },
+};
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderTable(key) {
+  const t = tables[key];
+  const tbody = document.getElementById(t.body);
+  tbody.innerHTML = '';
+  t.items.forEach((item, i) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td class="row-num">${i + 1}</td>
+      <td class="item-name">${item.name}</td>
+      <td class="col-unit"><span class="unit-badge">${item.unit}</span></td>
+      <td><input type="number" min="0" step="0.01" value="${item.qty || ''}" placeholder="0"
+          oninput="updateItem('${key}',${i},'qty',this.value)"></td>
+      <td><input type="number" min="0" step="0.01" value="${item.price || ''}" placeholder="0"
+          oninput="updateItem('${key}',${i},'price',this.value)"></td>
+      <td class="col-total">₹ ${calcRow(item)}</td>
+      <td class="col-del no-print"><button class="btn-remove" onclick="removeItem('${key}',${i})" title="हटवा">✕</button></td>
+    `;
+    tbody.appendChild(row);
+  });
+  updateTotals();
+}
+
+function calcRow(item) {
+  const q = parseFloat(item.qty) || 0;
+  const p = parseFloat(item.price) || 0;
+  return (q * p).toFixed(2);
+}
+
+function updateItem(key, index, field, val) {
+  tables[key].items[index][field] = val;
+  updateTotals();
+  // Update total cell
+  const tbody = document.getElementById(tables[key].body);
+  const row = tbody.rows[index];
+  if (row) row.cells[5].textContent = '₹ ' + calcRow(tables[key].items[index]);
+}
+
+function removeItem(key, index) {
+  tables[key].items.splice(index, 1);
+  renderTable(key);
+}
+
+function addRow(key, name, unit) {
+  if (!name.trim()) { showToast('कृपया नाव लिहा!'); return; }
+  tables[key].items.push({ name: name.trim(), unit: unit.trim() || 'नग', qty: '', price: '' });
+  renderTable(key);
+}
+
+function addFoodItem() {
+  addRow('food', document.getElementById('newFoodName').value, document.getElementById('newFoodUnit').value);
+  document.getElementById('newFoodName').value = '';
+  document.getElementById('newFoodUnit').value = '';
+}
+function addMasalaItem() {
+  addRow('masala', document.getElementById('newMasalaName').value, document.getElementById('newMasalaUnit').value);
+  document.getElementById('newMasalaName').value = '';
+  document.getElementById('newMasalaUnit').value = '';
+}
+function addVastuItem() {
+  addRow('vastu', document.getElementById('newVastuName').value, document.getElementById('newVastuUnit').value);
+  document.getElementById('newVastuName').value = '';
+  document.getElementById('newVastuUnit').value = '';
+}
+function addMandaiItem() {
+  addRow('mandai', document.getElementById('newMandaiName').value, document.getElementById('newMandaiUnit').value);
+  document.getElementById('newMandaiName').value = '';
+  document.getElementById('newMandaiUnit').value = '';
+}
+
+// ============================================================
+// TOTALS
+// ============================================================
+function sumTable(key) {
+  return tables[key].items.reduce((s, item) => {
+    return s + (parseFloat(item.qty) || 0) * (parseFloat(item.price) || 0);
+  }, 0);
+}
+
+function updateTotals() {
+  const s1 = sumTable('food');
+  const s2 = sumTable('masala');
+  const s3 = sumTable('vastu');
+  const s4 = sumTable('mandai');
+  const labour = parseFloat(document.getElementById('labourCharge').value) || 0;
+  const advance = parseFloat(document.getElementById('advance').value) || 0;
+  const grand = s1 + s2 + s3 + s4 + labour;
+  const balance = grand - advance;
+
+  document.getElementById('subtotal1').textContent = '₹ ' + s1.toFixed(2);
+  document.getElementById('subtotal2').textContent = '₹ ' + s2.toFixed(2);
+  document.getElementById('subtotal3').textContent = '₹ ' + s3.toFixed(2);
+  document.getElementById('subtotal4').textContent = '₹ ' + s4.toFixed(2);
+  document.getElementById('grandTotal').textContent = '₹ ' + grand.toFixed(2);
+  document.getElementById('balanceAmt').textContent = '₹ ' + balance.toFixed(2);
+}
+
+// ============================================================
+// WHATSAPP
+// ============================================================
+function shareWhatsApp() {
+  const name = document.getElementById('customerName').value || '(नाव नाही)';
+  const mobile = document.getElementById('mobile').value || '-';
+  const date = document.getElementById('eventDate').value || '-';
+  const guests = document.getElementById('guestCount').value || '-';
+  const event = document.getElementById('eventType').value || '-';
+  const address = document.getElementById('address').value || '-';
+  const notes = document.getElementById('notes').value || '-';
+  const labour = parseFloat(document.getElementById('labourCharge').value) || 0;
+  const advance = parseFloat(document.getElementById('advance').value) || 0;
+
+  let text = `🪔 *समृद्धी केटरर्स* 🪔\n`;
+  text += `📞 9834605581 / 8766438419\n`;
+  text += `──────────────────────\n`;
+  text += `👤 *ग्राहक:* ${name}\n`;
+  text += `📱 *मोबाईल:* ${mobile}\n`;
+  text += `📅 *तारीख:* ${date}\n`;
+  text += `🎉 *कार्यक्रम:* ${event}\n`;
+  text += `👥 *लोक:* ${guests}\n`;
+  text += `🏠 *पत्ता:* ${address}\n`;
+  text += `──────────────────────\n`;
+
+  const keys = ['food','masala','vastu','mandai'];
+  const labels = ['🌾 खाद्यपदार्थ','🌶️ मसाले','🍳 वस्तू भांडार','🥦 मंडई'];
+  keys.forEach((k, li) => {
+    const filled = tables[k].items.filter(i => i.qty);
+    if (filled.length > 0) {
+      text += `\n*${labels[li]}:*\n`;
+      filled.forEach(item => {
+        text += `  • ${item.name}: ${item.qty} ${item.unit}`;
+        if (item.price) text += ` × ₹${item.price} = ₹${(parseFloat(item.qty)*parseFloat(item.price)).toFixed(2)}`;
+        text += `\n`;
+      });
+    }
+  });
+
+  const grand = sumTable('food') + sumTable('masala') + sumTable('vastu') + sumTable('mandai') + labour;
+  text += `──────────────────────\n`;
+  text += `💰 *एकूण रक्कम: ₹${grand.toFixed(2)}*\n`;
+  if (advance > 0) text += `✅ *अॅडव्हान्स: ₹${advance.toFixed(2)}*\n`;
+  text += `💵 *बाकी: ₹${(grand - advance).toFixed(2)}*\n`;
+  if (notes !== '-') text += `\n📝 *टीप:* ${notes}\n`;
+  text += `──────────────────────\n`;
+  text += `🙏 धन्यवाद! समृद्धी केटरर्स`;
+
+  const url = 'https://wa.me/?text=' + encodeURIComponent(text);
+  window.open(url, '_blank');
+}
+
+// ============================================================
+// SAVE / LOAD / CLEAR
+// ============================================================
+function saveData() {
+  const data = {
+    customer: {
+      name: document.getElementById('customerName').value,
+      mobile: document.getElementById('mobile').value,
+      date: document.getElementById('eventDate').value,
+      guests: document.getElementById('guestCount').value,
+      event: document.getElementById('eventType').value,
+      address: document.getElementById('address').value,
+    },
+    tables,
+    labour: document.getElementById('labourCharge').value,
+    advance: document.getElementById('advance').value,
+    notes: document.getElementById('notes').value,
+  };
+  localStorage.setItem('samruddhi_order', JSON.stringify(data));
+  showToast('✅ डेटा जतन केला!');
+}
+
+function loadData() {
+  try {
+    const raw = localStorage.getItem('samruddhi_order');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (data.customer) {
+      document.getElementById('customerName').value = data.customer.name || '';
+      document.getElementById('mobile').value = data.customer.mobile || '';
+      document.getElementById('eventDate').value = data.customer.date || '';
+      document.getElementById('guestCount').value = data.customer.guests || '';
+      document.getElementById('eventType').value = data.customer.event || '';
+      document.getElementById('address').value = data.customer.address || '';
+    }
+    if (data.tables) {
+      Object.keys(data.tables).forEach(k => {
+        if (tables[k]) tables[k].items = data.tables[k].items || [];
+      });
+    }
+    document.getElementById('labourCharge').value = data.labour || '';
+    document.getElementById('advance').value = data.advance || '';
+    document.getElementById('notes').value = data.notes || '';
+    Object.keys(tables).forEach(k => renderTable(k));
+  } catch(e) {}
+}
+
+function clearAll() {
+  if (!confirm('सर्व डेटा साफ करायचा का?')) return;
+  ['customerName','mobile','eventDate','guestCount','eventType','address','labourCharge','advance','notes']
+    .forEach(id => document.getElementById(id).value = '');
+  Object.keys(tables).forEach(k => {
+    tables[k].items = [];
+    renderTable(k);
+  });
+  updateTotals();
+  showToast('🗑️ साफ केले!');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+function init() {
+  // Set today's date
+  document.getElementById('eventDate').valueAsDate = new Date();
+
+  // Load defaults
+  tables.food.items = defaultFoodItems.map(i => ({ ...i, qty: '', price: '' }));
+  tables.masala.items = defaultMasalaItems.map(i => ({ ...i, qty: '', price: '' }));
+  tables.vastu.items = defaultVastuItems.map(i => ({ ...i, qty: '', price: '' }));
+  tables.mandai.items = defaultMandaiItems.map(i => ({ ...i, qty: '', price: '' }));
+
+  Object.keys(tables).forEach(k => renderTable(k));
+
+  // Try loading saved
+  loadData();
+}
+
+window.onload = init;
+</script>
+</body>
+</html>
